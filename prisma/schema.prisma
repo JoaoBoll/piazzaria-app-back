@@ -10,19 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-//Para criar rodar comando yarn prisma migrate dev
-model User { 
+// criar uma migration: yarn prisma migrate dev
+model User {
   id String @id @default(uuid())
   name String
   email String
   password String
-  create_at DateTime? @default(now())
-  update_at DateTime? @default(now())
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
 
   @@map("users")
 }
 
-model Category {
+model Category{
   id String @id @default(uuid())
   name String
   created_at DateTime? @default(now())
@@ -30,10 +30,9 @@ model Category {
 
   @@map("categories")
   products Product[]
-
 }
 
-model Product {
+model Product{
   id String @id @default(uuid())
   name String
   price String
@@ -64,7 +63,7 @@ model Order{
 }
 
 model Item{
-  is String @id @default(uuid())
+  id String @id @default(uuid())
   amount Int
 
   created_at DateTime? @default(now())
@@ -73,7 +72,8 @@ model Item{
   order Order @relation(fields: [order_id], references: [id])
   product Product @relation(fields: [product_id], references: [id])
 
-  @@map("itens")
+  @@map("items")
   order_id String
   product_id String
+
 }

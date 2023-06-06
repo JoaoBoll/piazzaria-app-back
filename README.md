@@ -5,8 +5,8 @@ Pode ser encontrado [AQUI](https://nodejs.org/dist/v18.16.0/)
 
 ## Rodar os comandos:
 
-### `npm install`
-Caso use Yarn:
+### `npm install --global yarn`
+Caso já use Yarn:
 ### `yarn install`
 
 Configurar no .env as informações do banco de dados (Indicado o PostgreSQL)\
