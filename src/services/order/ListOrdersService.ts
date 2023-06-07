@@ -9,7 +9,11 @@ class ListOrdersService{
 
         const orders = prismaClient.order.findMany({
             where: {
-                id: order_id
+                draft: false,
+                status: false
+            },
+            orderBy: {
+                created_at: 'desc'
             }
         });
 
